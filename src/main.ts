@@ -2,10 +2,15 @@ import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+// Call the element loader before the bootstrapModule/bootstrapApplication call
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
+
+defineCustomElements(window);
 
 if (environment.production) {
   enableProdMode();
